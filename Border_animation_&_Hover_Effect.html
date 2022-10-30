@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #162052;
+        }
+        .box{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(0, 0, 0, .5);
+            border-radius: 50%;
+            overflow: hidden;
+            padding:10px;
+        }
+        .box::before {
+            content: "";
+            position: absolute;
+            inset: -10px 40%;
+            z-index: 1;
+            background:linear-gradient(0deg, rgb(71, 255, 240), rgb(200, 18, 236));
+            transition: .5s;
+            animation: borderRotateAnimation 3s linear infinite ;
+        
+        }
+        .box:hover::before {
+            inset: -10px;
+        }
+        @keyframes borderRotateAnimation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+            
+        }
+        .box::after{
+            content: '';
+            inset: 5px;
+            background-color: rgb(13, 18, 37);
+            z-index: 1;
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
